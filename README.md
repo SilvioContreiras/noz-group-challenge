@@ -1,4 +1,4 @@
-## Simple application to test some knowleges regarding Js stack
+## A Simple application to test some knowleges regarding Js stack
 
 ## Frontend
 
