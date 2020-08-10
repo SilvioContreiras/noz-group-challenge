@@ -5,15 +5,20 @@ import { fetchComments } from '../../store/getActions';
 import { Post } from  '../../components/Post';
 import { Comment } from '../../components/Comment';
 import Navbar from '../../components/Navbar'
+import { useSelector, useDispatch } from 'react-redux';
 
 const SinglePost = ({
   match,
-  dispatch,
-  post,
-  comments,
-  hasErrors,
-  loading,
+  // dispatch,
+  // post,
+  // comments,
+  // hasErrors,
+  // loading,
 }) => {
+  const dispatch =  useDispatch();
+  const { post, loading, hasErrors } = useSelector(state => state.post);
+  const { comments, loading: commentsLoading, hasErrors: commentsError } = useSelector(state => state.comments);
+
   useEffect(() => {
     const { id } = match.params
 
@@ -22,15 +27,15 @@ const SinglePost = ({
   }, [dispatch, match])
 
   const renderPost = () => {
-    if (loading.post) return <p>Loading post...</p>
-    if (hasErrors.post) return <p>Unable to display post.</p>
+    if (loading) return <p>Loading post...</p>
+    if (hasErrors) return <p>Unable to display post.</p>
 
     return <Post post={post} />
   }
 
   const renderComments = () => {
-    if (loading.comments) return <p>Loading comments...</p>
-    if (hasErrors.comments) return <p>Unable to display comments.</p>
+    if (commentsLoading) return <p>Loading comments...</p>
+    if (commentsError) return <p>Unable to display comments.</p>
 
     return comments.map(comment => (
       <Comment key={comment.id} comment={comment} />

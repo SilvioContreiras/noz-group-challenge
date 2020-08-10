@@ -11,7 +11,7 @@ export const getPostsSuccess = createAction('GET_POSTS_SUCCESS');
 export const getPostsFailure = createAction('GET_POSTS_FAILURE');
 
 export default createReducer(INITIAL_STATE, {
-    [getPosts.type]: (state) => ({ ...state, loading: true }),
-    [getPostsSuccess.type]: (state) => ({...state, loading: false, hasErrors: false }),
+    [getPosts.type]: (state, action) => ({ ...state, loading: true }),
+    [getPostsSuccess.type]: (state, action) => ({...state, posts: action.payload, loading: false, hasErrors: false }),
     [getPostsFailure.type]: (state) => ({ ...state, loading: false, hasErrors: true })
 });

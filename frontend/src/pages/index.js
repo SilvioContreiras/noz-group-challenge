@@ -33,10 +33,9 @@ export default () => (
     <Router>
       <Switch>
         <Route exact path="/login" component={Login} />
-        <Route exact path="/home" component={Home} /> 
-        <Route exact path="/posts" component={Posts} />
-        <Route exact path="/posts/:id" component={Post} />
-        {/* <PrivateRoute path="/home" component={Home} /> */}
+        <PrivateRoute exact path="/posts" component={Posts} />
+        <PrivateRoute exact path="/posts/:id" component={Post} />
+        <PrivateRoute path="/home" component={Home} /> 
         <Redirect path="/" to='/login' />
       </Switch>
     </Router>

@@ -9,11 +9,11 @@ import Navbar from '../../components/Navbar'
 
 const PostsPage = () => {
   const dispatch = useDispatch();
-  const { posts, loading, hasErrors } = useSelector((state) => state.post);
+  const { posts, loading, hasErrors } = useSelector((state) => state.posts);
 
   useEffect(() => {
     dispatch(fetchPosts());
-  }, [])
+  }, [dispatch])
 
   const renderPosts = () => {
     if (loading) return <p>Loading posts...</p>

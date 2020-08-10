@@ -18,7 +18,7 @@ export function fetchComments(postId) {
         const response = await axios.get(
           `https://jsonplaceholder.typicode.com/comments?postId=${postId}`
         )
-        const data = await response.json()
+        const data = await response.data
   
         dispatch(getCommentsSuccess(data))
       } catch (error) {
@@ -33,10 +33,9 @@ export function fetchPost(id) {
       dispatch(getPost())
   
       try {
-        const response = await axios.get(
-          `https://jsonplaceholder.typicode.com/posts/${id}`
+        const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`
         )
-        const data = response.json();
+        const data = response.data;
   
         dispatch(getPostSuccess(data))
       } catch (error) {
@@ -51,12 +50,12 @@ export function fetchPost(id) {
   
       try {
         const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
-        const data = response.json();
+        const data = response.data;
   
         dispatch(getPostsSuccess(data))
       } catch (error) {
         dispatch(getPostsFailure());
-        console.log(error);
+        console.log(error, 'teste');
       }
     }
   }
