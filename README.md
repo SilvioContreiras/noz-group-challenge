@@ -13,3 +13,8 @@
 * Node
 * Mongoose
 * express
+
+## Package manager
+* yarn
+
+**Also need to create a Docker image for mongoDB**
