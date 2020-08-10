@@ -12,7 +12,7 @@ p {
 nav {
   display: flex;
   padding: 2rem 0;
-  background: #111;
+  background: #312E38;
 }
 
 nav section {
@@ -68,7 +68,8 @@ section h1 {
 }
 
 .comment {
-  background: #f0f0f0;
+  background: #e9e9f5;
+  color: #312E38;
   border-radius: 4px;
   padding: 1rem 1.5rem;
   margin: 1rem 0;
